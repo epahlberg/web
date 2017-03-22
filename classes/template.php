@@ -13,9 +13,11 @@ class template
     var $content = false; //html malli faili sisu
     var $vars = array(); //html malli vaade sisu
 
+    function read_file($f){
+        $this->content = file_get_contents($f);
 
 
-
+    }
 
 }
 
