@@ -20,6 +20,7 @@ class template
         $this->file = $f; // määrame html malli nime
         $this->load_file();
 
+
     }
 
     //html malli faili lugemine
