@@ -46,6 +46,12 @@ class template
             $this->read_file($f);
         }
 
+        $f = TMPL_DIR.str_replace('.','/', '$this->file').'.html';
+
+        if(file_exists($f) and is_file($f) and is_readable($f)) {
+            $this->read_file($f);
+        }
+
         if ($this->content===false) {
             echo 'Ei saanud sisu lugeda<br>';
         }
