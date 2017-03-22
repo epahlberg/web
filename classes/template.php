@@ -57,7 +57,12 @@ class template
 
     }
 
+    // koostame elementide paarid
 
+    function set($name, $val) {
+        $this->vars[$name]= $val;
+
+    }
 }
 
 ?>
