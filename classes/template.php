@@ -39,6 +39,13 @@ class template
         if(file_exists($f) and is_file($f) and is_readable($f)) {
             $this->read_file($f);
         }
+        // .html laienduse eemaldamine
+        $f = TMPL_DIR.$this->file.'.html';
+
+        if(file_exists($f) and is_file($f) and is_readable($f)) {
+            $this->read_file($f);
+        }
+
         if ($this->content===false) {
             echo 'Ei saanud sisu lugeda<br>';
         }
