@@ -60,8 +60,16 @@ class template
     // koostame elementide paarid
 
     function set($name, $val) {
-        $this->vars[$name]= $val;
+        $this->vars[$name] = $val;
 
+    }
+
+    function parse() {
+        $str = $this->content;
+        foreach ($this->vars as $name=>$val){
+            $str=str_replace('{'.$name.'}', $val, $str);
+            echo $str;
+        }
     }
 }
 
