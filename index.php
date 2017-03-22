@@ -11,7 +11,6 @@ require_once 'conf.php';
 class template {
 
 
-
 }
 
 ?>
