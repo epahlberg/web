@@ -9,6 +9,14 @@
 class template
 {
 
+    var $file = ''; // html faili malli nimi
+    var $content = false; //html malli faili sisu
+    var $vars = array(); //html malli vaade sisu
+
+
+
+
+
 }
 
 ?>
