@@ -10,9 +10,6 @@ require_once 'conf.php';
 
 echo'<h1>Esileht</h1>';
 
-class template {
 
-
-}
 
 ?>
