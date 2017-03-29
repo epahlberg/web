@@ -9,7 +9,7 @@
 class linkobject extends http
 {
     var $baseurl = false;
-    var $delimiter = '&amp';
+    var $delimiter = '&amp;';
     var $eq = '=';
     var $protocol = 'http://';
 
@@ -20,7 +20,7 @@ class linkobject extends http
     }
     //andmete paari lisamine kujul: asi=väärtus&asi=väärtus
     function addtolink($link, $nimi, $val){
-        if($link == ''){
+        if($link != ''){
             $link = $link.$this->delimiter;
         }
         $link = $link.fixurl($nimi).$this->eq.fixurl($val);
@@ -32,7 +32,7 @@ class linkobject extends http
         foreach($add as $nimi=>$val){
             $this->addtolink($link, $nimi, $val);
         }
-        if ($link=''){
+        if ($link!=''){
             $link=$this->baseurl.'?'.$link;
 
         }
