@@ -80,5 +80,14 @@ class template
         return $str;
     }
 }
+    function($name, $val) {
+        if(!isset($this->vars[$name])){
+            $this->set($name,$val);
+        }
+        else {
+            $this->vars[$name] = $this->vars[$name].[$val];
+        }
+
+    }
 
 ?>

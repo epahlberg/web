@@ -18,9 +18,11 @@ $main_tmpl->set('lang_bar', 'Keeleriba');
 $main_tmpl->set('menu', 'Menüü');
 $main_tmpl->set('content', 'Sisu');
 $main_tmpl->set('site_title', 'Veebi');
+
 //kontrollime objekti sisu
 echo $main_tmpl->parse();
 
+require_once 'menu.php';
 
 
 
