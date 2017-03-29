@@ -21,7 +21,7 @@ $link = $http->getlink(array('act'=>'teine'));
 $item->set('link', $link);
 $menu->add('items',  $item->parse());
 
-
+//
 
 $main_tmpl->add('menu', $menu->parse());
 
