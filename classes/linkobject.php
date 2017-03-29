@@ -19,13 +19,11 @@ class linkobject extends http
         $this->baseurl = $this->protocol.HTTP_HOST.SCRIPT_NAME;
     }
     //andmete paari lisamine kujul: asi=väärtus&asi=väärtus
-    function addtolink($link, $nimi, $val){
+    function addtolink(&$link, $nimi, $val){
         if($link != ''){
             $link = $link.$this->delimiter;
         }
         $link = $link.fixurl($nimi).$this->eq.fixurl($val);
-        echo $link;
-
     }
     function getlink($add = array()){
         $link = '';
