@@ -17,8 +17,16 @@ class http
         $this->server = $_SERVER;
     }
 
+    //konstantide defineerimine
 
-
+    function initCont()
+    {
+        $consts = array('REMOTE_ADDR', 'HTTP_HOST', 'PHP_SELF', 'SCRIPT_NAME');
+        foreach($consts as $const){
+            if(!defined($consts) and isset($this->server[$const]));
+                define($consts, $this->server[$consts]);
+        }
+    }
 
 
 
