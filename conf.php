@@ -12,4 +12,12 @@ define('TMPL_DIR', 'tmpl/'); //clasess kataloogi konstant
 //Failide kasutusele võtmine
 
 require_once CLASSES_DIR.'template.php';
+require_once CLASSES_DIR.'http.php';
+
+$http = new http();
+$http->init();
+echo '<pre>';
+print_r($http);
+echo '</pre>';
+
 ?>
