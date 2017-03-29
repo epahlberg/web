@@ -12,9 +12,16 @@ $menu = new template('menu.menu');
 $item = new template('menu.item');
 
 $item->set('name', 'esimene');
+$link = $http->getlink(array('act'=>'first'));
+$item->set('link', $link);
 $menu->set('items',  $item->parse());
-$item->set('name', 'teine');
-$menu->add('items', $item->parse());
+
+$item->set('name', 'esimene');
+$link = $http->getlink(array('act'=>'teine'));
+$item->set('link', $link);
+$menu->set('items',  $item->parse());
+
+
 
 $main_tmpl->add('menu', $menu->parse());
 
