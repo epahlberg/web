@@ -13,11 +13,9 @@ define('TMPL_DIR', 'tmpl/'); //clasess kataloogi konstant
 
 require_once CLASSES_DIR.'template.php';
 require_once CLASSES_DIR.'http.php';
+require_once CLASSES_DIR.'linkobject.php';
+$http = new linkobject();
 
-$http = new http();
-$http->init();
-echo '<pre>';
-print_r($http);
-echo '</pre>';
+echo REMOTE_ADDR;
 
 ?>
