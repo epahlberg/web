@@ -19,9 +19,7 @@ class template
     {
         $this->file = $f; // määrame html malli nime
         $this->load_file();
-
-
-    }
+    }// __construct
 
     //html malli faili lugemine
     function load_file(){
@@ -46,7 +44,7 @@ class template
             $this->read_file($f);
         }
 
-        $f = TMPL_DIR.str_replace('.','/', '$this->file').'.html';
+        $f = TMPL_DIR.str_replace('.','/', $this->file).'.html';
 
         if(file_exists($f) and is_file($f) and is_readable($f)) {
             $this->read_file($f);
@@ -56,19 +54,27 @@ class template
             echo 'Ei saanud sisu lugeda<br>';
         }
 
-    }
+    }// load_file
 
     function read_file($f){
         $this->content = file_get_contents($f);
-
-    }
+    }// read_file
 
     // koostame elementide paarid
 
     function set($name, $val) {
         $this->vars[$name] = $val;
+    }// set
 
-    }
+    function add($name, $val) {
+        if(!isset($this->vars[$name])){
+            $this->set($name,$val);
+        }
+        else {
+            $this->vars[$name] = $this->vars [$name] . $val;
+        }
+
+    }// add
 
     function parse() {
         $str = $this->content;
@@ -76,18 +82,10 @@ class template
             $str=str_replace('{'.$name.'}', $val, $str);
 
         }
-
         return $str;
-    }
-}
-    function($name, $val) {
-        if(!isset($this->vars[$name])){
-            $this->set($name,$val);
-        }
-        else {
-            $this->vars[$name] = $this->vars[$name].[$val];
-        }
+    }// parse
+} // class end
 
-    }
+
 
 ?>

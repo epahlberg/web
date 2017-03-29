@@ -11,13 +11,12 @@
 $menu = new template('menu.menu');
 $item = new template('menu.item');
 
-$menu->set('name', $item->parse());
 $item->set('name', 'esimene');
+$menu->set('items',  $item->parse());
+$item->set('name', 'teine');
+$menu->add('items', $item->parse());
 
-echo '<pre>';
-    print_r($menu);
-    print_r($item);
-echo '</pre>';
+$main_tmpl->add('menu', $menu->parse());
 
 
 ?>

@@ -16,13 +16,14 @@ $main_tmpl->set('user', 'Kasutajanimi');
 $main_tmpl->set('title', 'Pealeht');
 $main_tmpl->set('lang_bar', 'Keeleriba');
 $main_tmpl->set('menu', 'Menüü');
+require_once 'menu.php';
 $main_tmpl->set('content', 'Sisu');
 $main_tmpl->set('site_title', 'Veebi');
 
 //kontrollime objekti sisu
 echo $main_tmpl->parse();
 
-require_once 'menu.php';
+
 
 
 
