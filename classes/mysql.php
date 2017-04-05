@@ -30,4 +30,14 @@ class mysql
             exit;
         }
     }
+    function query($sql){
+        $res = mysqli_query($this->conn, $sql);
+        if($res == FALSE){
+            echo 'Viga päringus! <br />';
+            echo '<strong>'.$sql.'</strong><br />';
+            echo mysqli_error($this->conn).'<br />';
+            exit;
+        }
+        return $res;
+    }
 }
