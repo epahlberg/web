@@ -37,6 +37,17 @@ class http
         }
     }
 
+    //veebis olevad andmed saab kätte
+
+    function get($name){
+        if($this->vars[$name]){
+            return $this->vars[$name];
+        }
+        else {
+            return false;
+        }
+
+    }
 
 
 
