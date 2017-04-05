@@ -8,7 +8,8 @@
 define('LIB_DIR', 'lib/');
 define('CLASSES_DIR', 'classes/'); //clasess kataloogi konstant
 define('TMPL_DIR', 'tmpl/'); //clasess kataloogi konstant
-
+define('ACTS_DIR', 'acts/');
+define('DEFAULT_ACT', 'default');
 
 //Failide kasutusele võtmine
 require_once LIB_DIR.'utils.php';
