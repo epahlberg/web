@@ -16,12 +16,12 @@ $link = $http->getlink(array('act'=>'first'));
 $item->set('link', $link);
 $menu->set('items',  $item->parse());
 
-$item->set('name', 'esimene');
+$item->set('name', 'teine');
 $link = $http->getlink(array('act'=>'teine'));
 $item->set('link', $link);
-$menu->set('items',  $item->parse());
+$menu->add('items',  $item->parse());
 
-
+//
 
 $main_tmpl->add('menu', $menu->parse());
 

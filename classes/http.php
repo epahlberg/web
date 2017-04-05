@@ -32,8 +32,9 @@ class http
     {
         $consts = array('REMOTE_ADDR', 'HTTP_HOST', 'PHP_SELF', 'SCRIPT_NAME');
         foreach($consts as $const){
-            if(!defined($const) and isset($this->server[$const]));
+            if(!defined($const) and isset($this->server[$const])) {
                 define($const, $this->server[$const]);
+            }
         }
     }
 
