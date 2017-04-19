@@ -8,4 +8,8 @@
 function fixurl($val){
     return urlencode($val);
 }
+
+function fixdb($val){
+    return '"'.addslashes($val).'"';
+}
 ?>
