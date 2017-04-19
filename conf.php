@@ -5,27 +5,27 @@
  * Date: 15.03.2017
  * Time: 15:25
  */
-define('LIB_DIR', 'lib/');
-define('CLASSES_DIR', 'classes/'); //clasess kataloogi konstant
-define('TMPL_DIR', 'tmpl/'); //clasess kataloogi konstant
-define('ACTS_DIR', 'acts/');
+define('CLASSES_DIR', 'classes/'); // classes kataloogi nime konstant
+define('TMPL_DIR', 'tmpl/'); // tmpl kataloogi nime konstant
+define('LIB_DIR', 'lib/'); // lib kataloogi nime konstant
+define('ACTS_DIR', 'acts/'); // acts kataloogi nime konstant
 define('LANG_DIR', 'lang/'); // lang kataloogi nime konstant
 define('DEFAULT_ACT', 'default'); // vaikimisi tegevuse faili nime konstant
 define('DEFAULT_LANG', 'et'); // vaikimisi keele määramine
-require_once 'db_conf.php';
-
-//Failide kasutusele võtmine
-
-require_once LIB_DIR.'trans.php';
+// võtame kasutusele vajalikud abifailid
 require_once LIB_DIR.'utils.php';
+require_once LIB_DIR.'trans.php'; // kutsume tõlkifunktsiooni asukoht
+require_once 'db_conf.php'; // loeme andmebaasi konfi sisse
+// võtame kasutusele vajalikud failid
 require_once CLASSES_DIR.'template.php';
 require_once CLASSES_DIR.'http.php';
 require_once CLASSES_DIR.'linkobject.php';
-
 require_once CLASSES_DIR.'mysql.php';
-
+// loome vajalikud objektid projekti tööks
 $http = new linkobject();
-$db = new mysql(DB_HOST,DB_USER, DB_PASS, DB_NAME);
+$db = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+// lisame keele tugi
+// lehe keelevahetuseka määratud keeled
 $siteLangs = array(
     'et' => 'eesti',
     'en' => 'inglise',
