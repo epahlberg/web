@@ -14,4 +14,3 @@ $_trans = array(
     'inglise' => 'english',
     'vene' => 'russian'
 );
-?>
