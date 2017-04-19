@@ -6,41 +6,41 @@
  * Date: 05.04.2017
  * Time: 10:28
  */
-class mysql
-{
-    var $conn = false;
-    var $host = false;
-    var $user = false;
-    var $pass = false;
-    var $dbname = false;
-
-    function __construct($h, $u, $p, $dn)
-    {
+lass mysql
+{ // klassi algus
+    // klassi omadused
+    var $conn = false; // ühendus andmebaasiserveriga
+    var $host = false; // andmebaasi serveri host
+    var $user = false; // andmebaasi serveri kasutaja
+    var $pass = false; // andmebaasi serveri parool
+    var $dbname = false; // andmebaasi serveris andmebaas
+    // klassi tegevused
+    function __construct($h, $u, $p, $dn){
         $this->host = $h;
         $this->user = $u;
         $this->pass = $p;
         $this->dbname = $dn;
         $this->connect();
-    }
-
+    }// konstruktor
     function connect(){
         $this->conn = mysqli_connect($this->host, $this->user, $this->pass, $this->dbname);
         if(mysqli_connect_error()){
-            echo 'Viga andmebaasiga ühendamisega';
+            echo 'Viga andmebaasiserveriga ühenduses<br />';
             exit;
         }
-    }
+    }// connect
+    // päringu teostamine
     function query($sql){
         $res = mysqli_query($this->conn, $sql);
-        if($res == FALSE){
-            echo 'Viga päringus! <br />';
-            echo '<strong>'.$sql.'</strong><br />';
+        if($res == false){
+            echo 'Viga päringus!<br />';
+            echo '<b>'.$sql.'</b><br />';
             echo mysqli_error($this->conn).'<br />';
             exit;
         }
         return $res;
-    }
-
+    }// query
+    // andmetega päringu teostamine
     function getArray($sql){
         $res = $this->query($sql);
         $data = array();
@@ -52,6 +52,5 @@ class mysql
         }
         return $data;
     }// getArray
-
-
-}
+} // klassi lõpp
+?>
