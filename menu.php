@@ -11,18 +11,25 @@
 $menu = new template('menu.menu');
 $item = new template('menu.item');
 
-$item->set('name', 'esimene');
-$link = $http->getlink(array('act'=>'first'));
-$item->set('link', $link);
-$menu->set('items',  $item->parse());
+$sql = 'SELECT content_id, title FROM content WHERE '.
+    'parent_id='.fixdb(0).' AND show_in_menu='.fixdb(1);
 
-$item->set('name', 'teine');
-$link = $http->getlink(array('act'=>'teine'));
-$item->set('link', $link);
-$menu->add('items',  $item->parse());
-
-//
-
+$res = $db->getArray($sql);
+// kontrollime tulemuse sisu
+if($res != false){
+    foreach ($res as $page){
+        // nimetame menüüs väljastav element
+        $item->set('name', tr($page['title']));
+        // loome antud menüü elemendile lingi
+        $link = $http->getLink(array('page_id'=>$page['content_id']));
+        // lisame antud link menüüsse
+        $item->set('link', $link);
+        // lisame valmis link menüü objekti sisse
+        $menu->add('items', $item->parse());
+    }
+}
+// kontrollime objekti olemasolu ja sisu
+// kui soovime pidevat asendamist, siis set funktsioon add asemel
 $main_tmpl->add('menu', $menu->parse());
 
 
