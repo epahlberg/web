@@ -9,12 +9,14 @@ define('LIB_DIR', 'lib/');
 define('CLASSES_DIR', 'classes/'); //clasess kataloogi konstant
 define('TMPL_DIR', 'tmpl/'); //clasess kataloogi konstant
 define('ACTS_DIR', 'acts/');
-
+define('LANG_DIR', 'lang/'); // lang kataloogi nime konstant
 define('DEFAULT_ACT', 'default'); // vaikimisi tegevuse faili nime konstant
 define('DEFAULT_LANG', 'et'); // vaikimisi keele määramine
 require_once 'db_conf.php';
 
 //Failide kasutusele võtmine
+
+require_once LIB_DIR.'trans.php';
 require_once LIB_DIR.'utils.php';
 require_once CLASSES_DIR.'template.php';
 require_once CLASSES_DIR.'http.php';
