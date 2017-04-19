@@ -7,55 +7,55 @@
  * Time: 14:22
  */
 class linkobject extends http
-{
-    var $baseurl = false;
-    var $delimiter = '&amp;';
+{// klassi algus
+    // klassi muutujad - omadused
+    var $baseUrl = false;
+    var $delim = '&amp;';
     var $eq = '=';
     var $protocol = 'http://';
     var $aie = array('lang_id'); // lisame keele näitamist veebis
+    // klassi meetodid
+    // klassi konstruktor
+    function __construct(){
+        parent::__construct(); // kutsume tööle http konstruktor
+        // loome põhilink
+        $this->baseUrl = $this->protocol.HTTP_HOST.SCRIPT_NAME;
+    }// konstruktor
 
-    function __construct()
-    {
-        parent::__construct(); //http konstruktor tuleb tööle
-        $this->baseurl = $this->protocol . HTTP_HOST . SCRIPT_NAME;
-    }
-
-    //andmete paari lisamine kujul: asi=väärtus&asi=väärtus
-    function addtolink(&$link, $nimi, $val)
-    {
-        if ($link != '') {
-            $link = $link . $this->delimiter;
+    // andmete paari koostamine kujul
+    // nimi=väärtus&nimi1=väärtus1 jne
+    function addToLink(&$link, $name, $val){
+        if($link != ''){
+            $link = $link.$this->delim;
         }
-        $link = $link . fixurl($nimi) . $this->eq . fixurl($val);
-    }
-
-    function getLink($add = array(), $aie = array(), $not = array())
-    {
+        $link = $link.fixUrl($name).$this->eq.fixUrl($val);
+    }// addToLink
+    // saame täislink valmis
+    function getLink($add = array(), $aie = array(), $not = array()){
         $link = '';
-        foreach ($add as $nimi => $val) {
-            $this->addToLink($link, $nimi, $val);
+        foreach($add as $name=>$val){
+            $this->addToLink($link, $name, $val);
         }
         // juhul, kui antud element juba meie lehel ette defineeritud
-        foreach ($aie as $nimi) {
-            $val = $this->get($nimi);
-            if ($val != false) {
-                $this->addToLink($link, $nimi, $val);
+        foreach ($aie as $name){
+            $val = $this->get($name);
+            if($val != false){
+                $this->addToLink($link, $name, $val);
             }
         }
         // juhul, kui antud objektis see väärtus juba määratud - näiteks keele id
-        foreach ($this->aie as $nimi) {
-            $val = $this->get($nimi);
+        foreach ($this->aie as $name){
+            $val = $this->get($name);
             // nüüd tuleb kontrollida, kas olemasolev asi juba lingis lisatud või mitte
-            if ($val != false and !in_array($nimi, $not)) {
-                $this->addToLink($link, $nimi, $val);
+            if($val != false and !in_array($name, $not)){
+                $this->addToLink($link, $name, $val);
             }
         }
-        if ($link != '') {
-            $link = $this->baseurl . '?' . $link;
+        if($link != ''){
+            $link = $this->baseUrl.'?'.$link;
         } else {
-            $link = $this->baseurl;
+            $link = $this->baseUrl;
         }
         return $link;
-
-    }
-}
+    }// getLink
+}// klassi lõpp
