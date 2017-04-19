@@ -7,13 +7,13 @@
  */
 // loome menüü objektid
 
-
 $menu = new template('menu.menu');
 $item = new template('menu.item');
-
+// lisame sisu
+// menüü sql lause
 $sql = 'SELECT content_id, title FROM content WHERE '.
-    'parent_id='.fixdb(0).' AND show_in_menu='.fixdb(1);
-
+    'parent_id='.fixDb(0).' AND show_in_menu='.fixDb(1);
+// saame päringu tulemus
 $res = $db->getArray($sql);
 // kontrollime tulemuse sisu
 if($res != false){
