@@ -21,4 +21,9 @@ class session
 
     }
 
+    function createSession(){
+
+
+    }
+
 }
