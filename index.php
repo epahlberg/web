@@ -7,20 +7,22 @@
  */
 // require once võtab vähem ressurssi.
 require_once 'conf.php';
-
-echo'<h1>Esileht</h1>';
-
-//valmistame template objekti
-$main_tmpl = new template('mydoc');
+// pealehe sisu
+echo '<h1>Veebiprogrammeerimise esileht</h1>';
+// valmistame peatemplate objekti
+$main_tmpl = new template('main');
+// valmistame paarid malli_element => väärtus
 $main_tmpl->set('user', 'Kasutajanimi');
-$main_tmpl->set('title', 'Pealeht');
-$main_tmpl->set('lang_bar', 'Keeleriba');
-$main_tmpl->set('menu', 'Menüü');
+$main_tmpl->set('title', tr('Pealeht'));
+// lisame keeleriba pealehele
+require_once 'lang.php';
+$main_tmpl->set('menu', tr('Lehe peamenüü'));
+// kutsume menüü tööle testimiseks
 require_once 'menu.php';
-
-$main_tmpl->set('site_title', 'Veebi');
+// tõstsime vaikimisi väljund default tegevuse sisse
 require_once 'act.php';
-//kontrollime objekti sisu
+$main_tmpl->set('site_title', 'Veebiprogrammeerimise kursus');
+// kontrollime antud objekti sisu
 echo $main_tmpl->parse();
 
 
