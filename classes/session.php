@@ -21,7 +21,7 @@ class session
 
     }
 
-    function createSession(){
+    function createSession($user = false){
 
 
     }
