@@ -39,7 +39,9 @@ class session
             'created=NOW()';
 
         $this->db->query($sql);
-        $this->sid=$sid;
+        // määrame sid ka antud klassi muutujale var $sid
+        $this->sid = $sid;
+        // paneme antud väärtus ka veebi - lehtede vahel kasutamiseks
         $this->http->set('sid', $sid);
 
 
