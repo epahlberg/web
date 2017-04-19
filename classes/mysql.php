@@ -6,7 +6,7 @@
  * Date: 05.04.2017
  * Time: 10:28
  */
-lass mysql
+class mysql
 { // klassi algus
     // klassi omadused
     var $conn = false; // ühendus andmebaasiserveriga
