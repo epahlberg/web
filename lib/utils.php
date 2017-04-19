@@ -5,11 +5,10 @@
  * Date: 29.03.2017
  * Time: 14:47
  */
-function fixurl($val){
+function fixUrl($val){
     return urlencode($val);
 }
-
-function fixdb($val){
+function fixDb($val){
     return '"'.addslashes($val).'"';
 }
 ?>
