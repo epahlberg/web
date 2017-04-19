@@ -22,7 +22,13 @@ class session
     }
 
     function createSession($user = false){
-
+        if ($user == false){
+            $user = array(
+                'user_id'=>0,
+                'role_id'=>0,
+                'username'=>'Anonymous'
+            );
+        }
 
     }
 
