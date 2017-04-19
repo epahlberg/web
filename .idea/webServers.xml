@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="fb55257a-f778-473c-a76e-fdf907425c9a" name="Anna Server" url="http://138.68.68.130/~erik.pahlberg/">
-        <fileTransfer host="138.68.68.130" port="22" rootFolder="/home/erik.pahlberg/public/" accessType="SFTP">
+        <fileTransfer host="138.68.68.130" port="22" rootFolder="/home/erik.pahlberg/public/web" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
