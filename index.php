@@ -24,8 +24,7 @@ require_once 'act.php';
 $main_tmpl->set('site_title', 'Veebiprogrammeerimise kursus');
 // kontrollime antud objekti sisu
 echo $main_tmpl->parse();
-
-
+?>
 
 
 
