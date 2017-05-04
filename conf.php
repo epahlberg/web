@@ -5,6 +5,8 @@
  * Date: 15.03.2017
  * Time: 15:25
  */
+error_reporting(0);
+// defineerime vajalikud konstandid
 define('CLASSES_DIR', 'classes/'); // classes kataloogi nime konstant
 define('TMPL_DIR', 'tmpl/'); // tmpl kataloogi nime konstant
 define('LIB_DIR', 'lib/'); // lib kataloogi nime konstant
@@ -12,6 +14,10 @@ define('ACTS_DIR', 'acts/'); // acts kataloogi nime konstant
 define('LANG_DIR', 'lang/'); // lang kataloogi nime konstant
 define('DEFAULT_ACT', 'default'); // vaikimisi tegevuse faili nime konstant
 define('DEFAULT_LANG', 'et'); // vaikimisi keele määramine
+// kasutajate rollid
+define('ROLE_NONE', 0);
+define('ROLE_ADMIN', 1);
+define('ROLE_USER', 2);
 // võtame kasutusele vajalikud abifailid
 require_once LIB_DIR.'utils.php';
 require_once LIB_DIR.'trans.php'; // kutsume tõlkifunktsiooni asukoht
@@ -26,10 +32,6 @@ require_once CLASSES_DIR.'session.php';
 $http = new linkobject();
 $db = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $sess = new session($http, $db);
-// kontrollime sess objekti tööd
-echo '<pre>';
-print_r($sess);
-echo '</pre>';
 // lisame keele tugi
 // lehe keelevahetuseka määratud keeled
 $siteLangs = array(
