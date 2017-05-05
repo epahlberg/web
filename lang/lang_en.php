@@ -19,3 +19,4 @@ $_trans = array(
     'Logi välja' => 'Logout',
     'Probleem sisselogimisega' => 'Problem with login'
 );
+?>

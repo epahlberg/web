@@ -150,3 +150,5 @@ class session
         }
     }// delSession
 }// klassi lõpp
+
+?>

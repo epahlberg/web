@@ -59,3 +59,4 @@ class linkobject extends http
         return $link;
     }// getLink
 }// klassi lõpp
+?>
